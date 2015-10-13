@@ -24,8 +24,9 @@ pop = data.frame(
 
 mpop = melt(pop, id.vars="anno")
 
-ggplot(mpop) + 
-    geom_area(aes(x=anno, y=value/1e6, fill=variable), stack=TRUE) + 
+ggplot(mpop) + theme_grey(base_size = 20) +
+    geom_area(aes(x=anno, y=value/1e6, fill=variable), stack=TRUE) +
+    ggtitle("Bevölkerung der Schweiz") +
     xlab("Jahr") + ylab("Einwohner (Mio)") + 
     scale_fill_manual(
       values=c("red","yellow","darkgray"), 
@@ -34,8 +35,9 @@ ggplot(mpop) +
       labels=c("Ausländer", "Eingebürgerte seit 1980", "'Gebürtige' Schweizer")
     )
     
-ggplot(mpop) + 
+ggplot(mpop) + theme_grey(base_size = 20) +
     geom_area(aes(x=anno, y=value/1e6, fill=variable), stack=TRUE) + 
+    ggtitle("Population de la Suisse") +
     xlab("Année") + ylab("Habitants (Millions)") + 
     scale_fill_manual(
       values=c("red","yellow","darkgray"), 
